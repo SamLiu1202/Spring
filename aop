@@ -1,0 +1,51 @@
+
+http://elim.iteye.com/blog/2394629 参考地址，在此谢谢原作者
+Aspect-Oriented Programming
+  programming technique based on concept of an Aspect
+  Aspect encapsulates cross-cutting logic
+AOP solution: Apply th Proxy design pattern
+
+AOP additional AOP Use Cases
+Most common: logging,security,transactions
+Audit logging: who,what,when,where
+Exception handling: log exception and notify DevOps team via SMS/email
+API Management: how many times has a method been called user(what are peak times? what is average load? who is top user?)
+
+AOP:
+pros:Reuseable modules, resolve code tangling,scatter,applied selectively based on configuration
+cons:Too many aspects and app flow is hard to follow, minor performance cost for aspect expectation.
+
+Advice:What action is taken and when it should be applied
+  Before advice: run before the method
+  After finally advice: run after the method(finally)
+  After return advice: run after the method(success execution)
+  After throwing advice: run after method(if exception thrown)
+  Around advice: run before and after method
+  
+Weaving: Connecting aspects to target objects to create an advised object
+  Different types of weaving: Compile-time, load-time, run-time
+  Regarding performance: run-time weaving is the slowest
+
+AOP framework: Spring AOP & AspectJ
+  Spring AOP: Spring provides AOP support
+    Key component of Spring: Security, transactions, caching etc
+    runtime weaving(slower)
+  AspectJ: Provides complete support for AOP
+    Rich support for
+      join points: method - level, constructor, field
+      code weaving: compile - time, post compile-time and load-time
+Spring AOP is a light implementation of AspectJ
+@Transactional: using @Before advice.
+
+pointcut Expression Language:
+execution(modifiers-pattern? return-type-pattern declaring-type-pattern? method-name-pattern(param-pattern) throws-pattern?)
+Use wildcards.
+Parameter Pattern Wildcards:
+  ()- matches a method without argument
+  (*) - matches a method with one argument of any type
+  (..) - matches a method with 0 or more arguments of any type
+@Order(Integer.MIN_VALUE - Integer.MAX_VALUE),按照顺序执行 
+
+
+
+
